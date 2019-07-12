@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xay dung lop mo ta hinh chu nhat</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800px" height="500px" style="border:1px solid #d3d3d3;"></canvas>
+
+<script>
+    let Rectangle = function (x,y,width, height) {
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getHeight = function () {
+            return this.height;
+        };
+        this.setInfo = function (width, height) {
+            this.width = width;
+            this.height = height;
+        };
+        this.area = width * height;
+
+        this.peripheral = (width + height) * 2;
+
+        this.draw = function () {
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        };
+    };
+
+    let hcn = new Rectangle(100, 50,100,50);
+    let ctx = document.getElementById('myCanvas').getContext('2d');
+    hcn.draw();
+    // hcn.setInfo(100, 200);
+    // hcn.draw();
+    ctx.font = "20px arial";
+    ctx.fillText("S = " + hcn.area + "; C = " + hcn.peripheral,100,130);
+
+</script>
+</body>
+</html>
